@@ -329,7 +329,7 @@ end
 function I = interpolate_tst(X,Nf)
 
     [n,p] = size(X);
-    I = zeros(Nf-2,p);
+    I = zeros(Nf-1,p);
     Points = sortrows(X,1);
     endpoints = [Points(1,:); Points(end,:)];
     distances = zeros(1,n-1);
@@ -365,7 +365,7 @@ function I = interpolate_tst(X,Nf)
 %     end 
 
     I = [endpoints(1,:); I];
-    I(end+1,:) = endpoints(end,:);
+    I(end,:) = endpoints(end,:);
     if count<Nf-2
         disp('CUIDADO, MENOS PUNTOS ENCONTRADOS, SET DEGENERADO')
         for i=count:Nf-2
